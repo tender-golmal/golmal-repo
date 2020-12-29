@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+      env: development
+      label: main
+      name: golmal-repo
+      uri: http://51.124.63.195:8080
+  profiles:
+    active: development

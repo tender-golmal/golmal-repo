@@ -42,7 +42,7 @@ jobs:
         # Ignore the failure of a step and avoid terminating the job.
         continue-on-error: true
       - run: docker login --username=sushantpat11 --password=e48140e9-2f4c-4061-b72d-29d0d695f93e
-      - run: docker build -t sushantpat11/golmal-discovery:${GITHUB_RUN_NUMBER} .
-      - run: docker push sushantpat11/golmal-discovery:${GITHUB_RUN_NUMBER}
-      - run: docker tag sushantpat11/golmal-discovery:${GITHUB_RUN_NUMBER} sushantpat11/golmal-discovery:latest
-      - run: docker push sushantpat11/golmal-discovery:latest
+      - run: docker build -t sushantpat11/golmal-repo:${GITHUB_RUN_NUMBER} .
+      - run: docker push sushantpat11/golmal-repo:${GITHUB_RUN_NUMBER}
+      - run: docker tag sushantpat11/golmal-repo:${GITHUB_RUN_NUMBER} sushantpat11/golmal-repo:latest
+      - run: docker push sushantpat11/golmal-repo:latest

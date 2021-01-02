@@ -1,10 +1,19 @@
+server:
+  port: 8383
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
 spring:
+  application:
+    name: golmal-repo
   cloud:
     config:
       enabled: true
-      env: development
       label: main
-      name: golmal-repo
-      uri: http://51.124.63.195:8080
+      discovery:
+        service-id: GOLMAL-CONFIG-SERVER
+        enabled: true
+      fail-fast: true
   profiles:
     active: development

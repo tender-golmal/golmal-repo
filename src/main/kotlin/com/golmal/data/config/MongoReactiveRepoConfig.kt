@@ -7,18 +7,23 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 import com.mongodb.reactivestreams.client.MongoClients
 
 import com.mongodb.reactivestreams.client.MongoClient
+import com.mongodb.connection.netty.NettyStreamFactoryFactory
 
-
+import com.mongodb.MongoClientSettings
+import org.springframework.boot.autoconfigure.mongo.MongoProperties
 
 
 @Configuration
 @EnableReactiveMongoRepositories("com.golmal.data.repo")
-class MongoReactiveRepoConfig: AbstractReactiveMongoConfiguration(){
+class MongoReactiveRepoConfig(val mongoProperties: MongoProperties): AbstractReactiveMongoConfiguration(){
     override fun getDatabaseName(): String ="golmaldb"
     override fun reactiveMongoClient(): MongoClient {
         // Instantiate MongoClient with default settings: mongodb://localhost
+        val settings = MongoClientSettings.builder()
+            .applyConnectionString(ConnectionString("mongodb://${mongoProperties.host}:${mongoProperties.port}/${mongoProperties.database}"))
+            .build()
 
-        return MongoClients.create(ConnectionString("mongodb://localhost:27017/golmaldb"))
+        return MongoClients.create(settings)
     }
 
 }

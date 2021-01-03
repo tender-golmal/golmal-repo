@@ -1,10 +1,12 @@
-package com.golmal.data.controller
+package com.golmal.repo.controller
+
 
 import com.golmal.data.domain.UserProfile
-import com.golmal.data.repo.UserRepository
+import com.golmal.repo.repo.UserRepository
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+
 
 @RestController
 @RequestMapping("/users")
@@ -24,7 +26,7 @@ class UserController(private val userRepository: UserRepository) {
     }
 
     @PutMapping("/{email}")
-    fun updateUser(@RequestBody userProfile: UserProfile,@PathVariable email: String): Mono<UserProfile>? {
+    fun updateUser(@RequestBody userProfile: UserProfile, @PathVariable email: String): Mono<UserProfile>? {
         val found=userRepository.findById(email).block()
         found?.apply {
             firstName=userProfile.firstName

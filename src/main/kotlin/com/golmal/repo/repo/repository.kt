@@ -1,4 +1,4 @@
-package com.golmal.data.repo
+package com.golmal.repo.repo
 
 import com.golmal.data.domain.UserProfile
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository

@@ -1,4 +1,4 @@
-package com.golmal.data
+package com.golmal.repo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration

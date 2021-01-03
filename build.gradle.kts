@@ -19,7 +19,15 @@ configurations {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 	maven { url = uri("https://repo.spring.io/milestone") }
+	maven {
+		url=uri("https://maven.pkg.github.com/tender-golmal/packages")
+		credentials{
+			username="sushant380"
+			password="e1505e0c3f324793ca7400d5bdca7d30f2af6657"
+		}
+	}
 }
 
 extra["springCloudVersion"] = "2020.0.0"
@@ -39,6 +47,7 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("org.springframework.retry:spring-retry")
 	implementation("org.springframework:spring-aspects")
+	implementation("com.golmal:data:1.0.1")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

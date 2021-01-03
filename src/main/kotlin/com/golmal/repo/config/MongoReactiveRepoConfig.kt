@@ -1,4 +1,4 @@
-package com.golmal.data.config
+package com.golmal.repo.config
 
 import com.mongodb.ConnectionString
 import org.springframework.context.annotation.Configuration
@@ -7,14 +7,13 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 import com.mongodb.reactivestreams.client.MongoClients
 
 import com.mongodb.reactivestreams.client.MongoClient
-import com.mongodb.connection.netty.NettyStreamFactoryFactory
 
 import com.mongodb.MongoClientSettings
 import org.springframework.boot.autoconfigure.mongo.MongoProperties
 
 
 @Configuration
-@EnableReactiveMongoRepositories("com.golmal.data.repo")
+@EnableReactiveMongoRepositories("com.golmal.repo.repo")
 class MongoReactiveRepoConfig(val mongoProperties: MongoProperties): AbstractReactiveMongoConfiguration(){
     override fun getDatabaseName(): String ="golmaldb"
     override fun reactiveMongoClient(): MongoClient {

@@ -47,7 +47,7 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("org.springframework.retry:spring-retry")
 	implementation("org.springframework:spring-aspects")
-	implementation("com.golmal:data:1.0.1")
+	implementation("com.golmal:data:1.0.28+")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
